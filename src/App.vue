@@ -222,43 +222,38 @@ pre {
 }
 
 #root {
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 3fr 2fr;
+    padding: 16px;
+    gap: 16px;
+    box-sizing: border-box;
 }
 #root > h1 {
 	font-size: 1.5em;
-	margin: 16px 16px 0 16px;
+    margin: 0;
+    grid-column: 1 / -1;
 }
 
-#grid1 {
-	box-sizing: border-box;
-	flex: 1;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr;
-	grid-gap: 16px;
-	padding: 16px 16px 16px 16px;
-	min-height: 0;
+#grid1, #grid2 {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 0;
 }
+
 #grid1 > * {
 	min-height: 0;
 }
 #grid2 {
-	box-sizing: border-box;
-	flex: 1;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr;
-	grid-gap: 16px;
-	padding: 0 16px 16px 16px;
-	min-height: 0;
 }
 #grid2 > * {
 	min-height: 0;
 }
 
 #editor {
+    flex-basis: 80%;
 }
 #editor > .code {
 	box-sizing: border-box;
@@ -268,6 +263,9 @@ pre {
 	color: #f00;
 }
 
+#logs {
+    flex-basis: 20%;
+}
 #logs .log .type {
 	opacity: 0.5;
 	color: #fff;
@@ -280,6 +278,10 @@ pre {
 }
 #logs .log.str {
 	color: #ff0;
+}
+
+#ast, #rootUi, #mockAPI {
+    flex-basis: 100%;
 }
 
 #ast {
